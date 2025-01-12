@@ -183,14 +183,18 @@
                 message: message
             };
 
-            emailjs.send('service_rez79rl', 'template_8lvxnzo', templateParams)
+            emailjs.send("service_rez79rl", "template_8lvxnzo", templateParams)
                 .then(function(response) {
-                    document.getElementById('statusMessage').textContent = 'Your message has been sent!';
-                    document.getElementById('statusMessage').style.color = 'green';
-                }, function(error) {
+                console.log('Success', response);
+                document.getElementById('statusMessage').textContent = 'Your message has been sent!';
+                document.getElementById('statusMessage').style.color = 'green';
+            }, 
+                function(error) {
+                    console.log('Error', error);
                     document.getElementById('statusMessage').textContent = 'Error sending message. Please try again later.';
                     document.getElementById('statusMessage').style.color = 'red';
-                });
+            });
+
 
             setTimeout(() => {
                 document.getElementById('contactForm').reset();
