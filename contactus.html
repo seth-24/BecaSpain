@@ -159,23 +159,14 @@
 
     <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        emailjs.init("F4EeSwc-2E4XSFbZu");
+         emailjs.init("F4EeSwc-2E4XSFbZu");
 
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault();
 
-            const name = document.getElementById('name').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const message = document.getElementById('message').value.trim();
-
-            if (name === '' || email === '' || message === '') {
-                document.getElementById('statusMessage').textContent = 'All fields are required.';
-                document.getElementById('statusMessage').style.color = 'red';
-                return;
-            }
-
-            document.getElementById('submitBtn').disabled = true;
-            document.getElementById('submitBtn').textContent = 'Submitting...';
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
 
             const templateParams = {
                 name: name,
@@ -185,22 +176,14 @@
 
             emailjs.send("service_rez79rl", "template_8lvxnzo", templateParams)
                 .then(function(response) {
-                console.log('Success', response);
-                document.getElementById('statusMessage').textContent = 'Your message has been sent!';
-                document.getElementById('statusMessage').style.color = 'green';
-            }, 
-                function(error) {
-                    console.log('Error', error);
-                    document.getElementById('statusMessage').textContent = 'Error sending message. Please try again later.';
-                    document.getElementById('statusMessage').style.color = 'red';
-            });
-
-
-            setTimeout(() => {
-                document.getElementById('contactForm').reset();
-                document.getElementById('submitBtn').disabled = false;
-                document.getElementById('submitBtn').textContent = 'Submit';
-            }, 2000);
+                    document.getElementById("statusMessage").textContent = 'Your message has been sent!';
+                    document.getElementById("statusMessage").style.color = 'green';
+                    document.getElementById("contactForm").reset();
+                }, function(error) {
+                    document.getElementById("statusMessage").textContent = 'Error sending message. Please try again later.';
+                    document.getElementById("statusMessage").style.color = 'red';
+                    console.log("EmailJS error: ", error);
+                });
         });
     </script>
 </body>
