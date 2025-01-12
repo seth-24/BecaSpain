@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | BecaSpain</title>
+    <style>
+         html {
+            scroll-behavior: smooth;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #d1e8ff, #ffffff);
+            color: #1a3c66;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background: transparent;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 2rem;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #1a3c66;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .service {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .service img {
+            max-width: 150px;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .service h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #005082;
+        }
+
+        .service p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service a {
+            color: #1a82c5;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .service a:hover {
+            color: #ff6b81;
+        }
+
+        footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            color: #6e0d0d57;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #005082;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #005082, #00aaff);
+            opacity: 0.8;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="gradient-overlay"></div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="index.html#faq-container">FAQ</a></li>
+            <li><a href="maps.html">Map</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Our Services</h1>
+        <p>Explore how we can assist you in achieving your educational and career goals.</p>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="service">
+                <img src="mortarboard.png" alt="Scholarship Guidance">
+                <h2>Scholarship Guidance</h2>
+                <p>We help students find scholarships tailored to their profiles and ambitions.</p>
+                <p><a href="scholarshipguidance.html" target="_blank">Learn More</a></p>
+            </div>
+
+            <div class="service">
+                <img src="career.png" alt="Career Counseling">
+                <h2>Career Counseling</h2>
+                <p>Align your academic pursuits with your dream career through our expert advice.</p>
+                <p><a href="careercounseling.html" target="_blank">Learn More</a></p>
+            </div>
+
+            <div class="service">
+                <img src="college.png" alt="University Selection">
+                <h2>University Selection</h2>
+                <p>Choose the best universities that suit your preferences and qualifications.</p>
+                <p><a href="uniselection.html" target="_blank">Learn More</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BecaSpain. All rights reserved.</p>
+    </footer>
+</body>
+</html>

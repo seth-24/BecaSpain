@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BecaSpain</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #d1e8ff, #ffffff);
+            color: #1a3c66;
+        }
+
+        header {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            padding: 2rem;
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .intro-paragraph p {
+            font-size: 1.2rem;
+            color: #ffffff;
+            margin-top: 1rem;
+            text-align: center;
+            opacity: 0; 
+            transform: translateY(50px); 
+            animation: fadeInUp 1.5s ease-out forwards; 
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            padding: 1rem;
+            background: transparent; 
+            z-index: 1000; 
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-right: 2rem;
+        }
+
+        nav ul li:last-child {
+            margin-right: 0;
+        }
+
+        nav a {
+            color: white; 
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #1a3c66; 
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 2rem 2rem; 
+        }
+
+        .scholarship {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .scholarship img {
+            max-width: 150px;
+            border-radius: 10px;
+            margin-right: 1rem;
+        }
+
+        .scholarship:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .scholarship-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scholarship-details h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .scholarship-details p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            footer p {
+                font-size: 0.8rem;
+            }
+
+            .scholarship {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .scholarship img {
+                margin-bottom: 1rem;
+            }
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(45deg, #005082, #00aaff);
+            opacity: 0.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 1rem;
+        }
+
+        .faq-container {
+            scroll-behavior: smooth;
+            max-width: 800px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-top: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .faq-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .faq-question {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .faq-answer {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            font-weight: bold;
+            color: #005082;
+        }
+
+        footer {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="gradient-overlay"></div>
+        <nav>
+            <ul>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+                <li><a href="maps.html">Map</a></li>
+            </ul>
+        </nav>
+
+        <h1>Welcome to BecaSpain</h1>
+        <p>Your trusted partner in orientation and guidance. Let us help you pave the way to success.</p>
+        <div class="intro-paragraph">
+            <h2>Studying in Spain in nutshell</h2>
+            <p>Studying in Spain opens doors to an incredible educational experience, with programs available in both Spanish and English. Whether you choose to study in Spanish or prefer courses in English, Spain offers an array of options across public and private universities. The cost of living is affordable, with average monthly expenses ranging from 600–1,000 EUR, depending on the city. Public universities have relatively low tuition fees, ranging from 700 to 2500 EUR per program, while private institutions can charge anywhere from 5,000 to 20,000 EUR per program. Spain’s private sector also offers plenty of opportunities for students, making it an excellent destination for both academics and career growth.</p>
+        </div> 
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="scholarship">
+                <img src="scholarshipads.jpeg" alt="ScholarshipsAds">
+                <div class="scholarship-details">
+                    <h2>ScholarshipsAds</h2>
+                    <p>Comprehensive listing of scholarships for Moroccan students, including those for studies in Spain.</p>
+                    <p><a href="https://www.scholarshipsads.com/search/scholarships-for-moroccan-students-in-spain" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="scholarship">
+                <img src="Tawjeeh-Favicon-32px-01.png" alt="Tawjeeh">
+                <div class="scholarship-details">
+                    <h2>Tawjeeh</h2>
+                    <p>A Moroccan platform offering detailed guidance on studying in Spain and available scholarships.</p>
+                    <p><a href="https://tawjeeh.ma/en/study-in-spain/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="scholarship">
+                <img src="wejha.png" alt="Wejha">
+                <div class="scholarship-details">
+                    <h2>Wejha</h2>
+                    <p>Provides insights into studying in Spain, covering tuition costs and scholarship opportunities.</p>
+                    <p><a href="https://wejha.ma/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="scholarship">
+                <img src="ugrlogo.png" alt="University of Granada">
+                <div class="scholarship-details">
+                    <h2>University of Granada Scholarships</h2>
+                    <p>Scholarships for Moroccan undergraduate students to study in Spain.</p>
+                    <p><a href="https://www.european-funding-guide.eu/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="scholarship">
+                <img src="planetformacion.logo.png" alt="Planeta Formación">
+                <div class="scholarship-details">
+                    <h2>Planeta Formación y Universidades</h2>
+                    <p>Collaboration with the Moroccan Embassy to offer scholarships for Moroccan students residing in Spain.</p>
+                    <p><a href="https://www.planetaformacion.com/en/study-grants-collaboration-moroccan-embassy-moroccan-students-living-spain" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="scholarship">
+                <img src="scholarshipscom.png" alt="Scholarships.com">
+                <div class="scholarship-details">
+                    <h2>Scholarships.com</h2>
+                    <p>Directory of scholarships for Moroccan students, including opportunities in Spain.</p>
+                    <p><a href="https://www.scholarships.com/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="scholarship">
+                <img src="wemakescholars.webp" alt="WeMakeScholars">
+                <div class="scholarship-details">
+                    <h2>WeMakeScholars</h2>
+                    <p>List of scholarships, fellowships, and grants for Moroccan students pursuing studies abroad.</p>
+                    <p><a href="https://www.wemakescholars.com/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="scholarship">
+                <img src="scholarships.png" alt="ScholarshipTab">
+                <div class="scholarship-details">
+                    <h2>ScholarshipTab</h2>
+                    <p>Information on various scholarships for Moroccan students to study abroad.</p>
+                    <p><a href="https://www.scholarshiptab.com/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+            <div class="scholarship">
+                <img src="mobile-logo2.png" alt="ScholarshipTab">
+                <div class="scholarship-details">
+                    <h2>Scholars4Dev</h2>
+                    <p>Features international scholarships for Moroccan students, including those in Spain.</p>
+                    <p><a href="https://www.scholars4dev.com/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+
+            <div class="scholarship">
+                <img src="studyinnl.png" alt="MENA Scholarship Programme (MSP)">
+                <div class="scholarship-details">
+                    <h2>MENA Scholarship Programme (MSP)</h2>
+                    <p>Scholarships for professionals from Morocco to study in the Netherlands, with potential opportunities for Spain-related programs.</p>
+                    <p><a href="https://www.studyinnl.org/finances/mena-scholarship-programme-msp" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+            <div class="scholarship">
+                <img src="study-in-spain-logo.png" alt="Tawjeeh">
+                <div class="scholarship-details">
+                    <h2>Study in Spain</h2>
+                    <p>a comprehensive platform offering guidance for students looking to study in Spain, covering topics such as visa processes, university programs, and student life.</p>
+                    <p><a href="https://tawjeeh.ma/en/study-in-spain/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+            <div class="scholarship">
+                <img src="uned-logo-1C58467D31-seeklogo.com.png" alt="Tawjeeh">
+                <div class="scholarship-details">
+                    <h2>UNED</h2>
+                    <p>UNED (Universidad Nacional de Educación a Distancia) is a Spanish public university that offers distance education programs, making higher education accessible to students across Spain and internationally.</p>
+                    <p><a href="https://tawjeeh.ma/en/study-in-spain/" target="_blank">Learn More</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="faq-container">
+            <div class="faq-question">1. How do I apply for scholarships to study in Spain?</div>
+            <div class="faq-answer">You can apply through various scholarship platforms listed on our site. Be sure to check eligibility requirements and deadlines for each opportunity.</div>
+
+            <div class="faq-question">2. Do I need to speak Spanish to study in Spain?</div>
+            <div class="faq-answer">While many programs are offered in English, knowing Spanish can help you better integrate into life in Spain and improve your experience.</div>
+
+            <div class="faq-question">3. What are the costs of living in Spain for international students?</div>
+            <div class="faq-answer">Living costs vary depending on the city, but average expenses range from 600 to 1,000 EUR per month. Major cities like Madrid and Barcelona tend to be more expensive.</div>
+
+            <div class="faq-question">4. Can I work while studying in Spain?</div>
+            <div class="faq-answer">Yes, international students can work up to 20 hours per week during the academic year and full-time during holidays. However, your primary focus should be your studies.</div>
+
+            <div class="faq-question">5. How long does it take to get a student visa for Spain?</div>
+            <div class="faq-answer">It can take several weeks to several months, depending on your country of residence. It’s important to apply early and ensure all documents are in order.</div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BecaSpain. All rights reserved.</p>
+    </footer>
+</body>
+</html>
