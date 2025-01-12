@@ -113,6 +113,11 @@
             background: rgba(0, 0, 0, 0.8);
             color: white;
         }
+
+        .status-message {
+            margin-top: 1rem;
+            font-size: 1.2rem;
+        }
     </style>
 </head>
 <body>
@@ -132,7 +137,7 @@
     <main>
         <p>We'd love to hear from you! Whether you have questions about our services or need personalized assistance, we're here to help. Please fill out the contact form below, and our team will get back to you as soon as possible.</p>
 
-        <form action="/submit" method="POST">
+        <form id="contactForm">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 
@@ -142,8 +147,10 @@
             <label for="message">Message:</label>
             <textarea id="message" name="message" rows="5" required></textarea>
 
-            <button type="submit">Submit</button>
+            <button type="submit" id="submitBtn">Submit</button>
         </form>
+
+        <div class="status-message" id="statusMessage"></div>
     </main>
 
     <footer>
